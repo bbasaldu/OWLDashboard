@@ -5,7 +5,8 @@ import morgan from 'morgan';
 import mongoose from 'mongoose';
 import playerRouter from './routes/players-route.js';
 import HttpError from './models/http-error.js';
-import cors from 'cors';
+//import cors from 'cors';
+import path from 'path'
 //import {createPlayer, getPlayers} from './mongoosev2.js'
 //import Player from "./models/players.js";
 const app = express();
@@ -27,6 +28,7 @@ app.use('/api/v1/players', playerRouter)
 app.use((req, res, next) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
 })
+
 
 app.use((req, res, next) => {
     const error = new HttpError('Could not find this route.', 404)
