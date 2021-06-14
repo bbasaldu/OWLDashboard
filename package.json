@@ -1,0 +1,29 @@
+{
+  "name": "owl_project",
+  "version": "1.0.0",
+  "description": "Overwatch league data visualizer showcasing my MERN stack knowledge.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Brian Basaldua",
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.5.5",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.9",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.11.1",
+    "fetch": "^1.1.0",
+    "helmet": "^4.6.0",
+    "mongoose": "^5.12.7",
+    "morgan": "^1.10.0",
+    "neat-csv": "^6.0.1",
+    "puppeteer": "^9.1.1",
+    "request": "^2.88.2"
+  }
+}
