@@ -42,7 +42,7 @@ app.use((error, req, res, next) => {
 // app.get('/players', getPlayers)
 //app.listen(3000)
 mongoose
-.connect('mongodb+srv://bbasaldua:Animarum505!@cluster0.qsylk.mongodb.net/PracDB?retryWrites=true&w=majority')
+.connect(`${process.env.DATABASE_URL}`)
 .then( async () => {
     console.log('connected app.js...')
     app.listen(process.env.PORT || 5000);
