@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(morgan('common'))
 
 //for static extra files like images
-app.use(express.static(path.join('public')))
+//app.use(express.static(path.join('public')))
 //app.use(helmet())
 //app.use(cors())
 app.use((req, res, next) =>{
@@ -25,9 +25,9 @@ app.use((req, res, next) =>{
 })
 app.use('/api/v1/players', playerRouter)
 
-app.use((req, res, next) => {
-    res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-})
+// app.use((req, res, next) => {
+//     res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+// })
 
 
 app.use((req, res, next) => {
@@ -50,8 +50,9 @@ app.use((error, req, res, next) => {
 // app.post('/players', createPlayer)
 // app.get('/players', getPlayers)
 //app.listen(3000)
+
 mongoose
-.connect(`${process.env.DATABASE_URL}`)
+.connect(`mongodb+srv://bbasaldua:Animarum505!@cluster0.qsylk.mongodb.net/PracDB?retryWrites=true&w=majority`)
 .then( async () => {
     console.log('connected app.js...')
     app.listen(process.env.PORT || 5000);
