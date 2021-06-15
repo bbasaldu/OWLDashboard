@@ -11,12 +11,12 @@ import path from 'path'
 //import Player from "./models/players.js";
 const app = express();
 app.use(bodyParser.json());
-app.use(morgan('common'))
+//app.use(morgan('common'))
 
-//for static extra files like images
-//app.use(express.static(path.join('public')))
+//for static extra files like images and js files
+app.use(express.static(path.join('public')))
 app.use(helmet())
-app.use(cors())
+//app.use(cors())
 
 //dev cors code
 // app.use((req, res, next) =>{
