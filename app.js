@@ -7,15 +7,18 @@ import playerRouter from './routes/players-route.js';
 import HttpError from './models/http-error.js';
 import cors from 'cors';
 import path from 'path'
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 //import {createPlayer, getPlayers} from './mongoosev2.js'
 //import Player from "./models/players.js";
 const app = express();
 app.use(bodyParser.json());
 //app.use(morgan('common'))
-
+app.use(helmet())
 //for static extra files like images and js files
 app.use(express.static(path.join('public')))
-app.use(helmet())
+
 //app.use(cors())
 
 //dev cors code
