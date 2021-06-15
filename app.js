@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 import playerRouter from './routes/players-route.js';
 import HttpError from './models/http-error.js';
 import cors from 'cors';
-import path from 'path'
+import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 app.use(bodyParser.json());
 //app.use(morgan('common'))
-app.use(helmet())
+//app.use(helmet())
 //for static extra files like images and js files
 app.use(express.static(path.join('public')))
 
