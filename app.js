@@ -5,7 +5,7 @@ import morgan from 'morgan';
 import mongoose from 'mongoose';
 import playerRouter from './routes/players-route.js';
 import HttpError from './models/http-error.js';
-//import cors from 'cors';
+import cors from 'cors';
 import path from 'path'
 //import {createPlayer, getPlayers} from './mongoosev2.js'
 //import Player from "./models/players.js";
@@ -15,8 +15,8 @@ app.use(morgan('common'))
 
 //for static extra files like images
 //app.use(express.static(path.join('public')))
-//app.use(helmet())
-//app.use(cors())
+app.use(helmet())
+app.use(cors())
 
 //dev cors code
 // app.use((req, res, next) =>{
@@ -31,6 +31,8 @@ app.use('/api/v1/players', playerRouter)
 app.use((req, res, next) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
 })
+
+
 
 
 app.use((req, res, next) => {
