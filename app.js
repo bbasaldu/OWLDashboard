@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 app.use(bodyParser.json());
 //app.use(morgan('common'))
-//app.use(helmet())
+app.use(helmet())
 //for static extra files like images and js files
 app.use(express.static(path.join('public')))
 
