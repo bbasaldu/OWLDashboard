@@ -17,8 +17,10 @@ app.use(bodyParser.json());
 //app.use(morgan('common'))
 app.use(helmet())
 //for static extra files like images and js files
+//need for final build
 app.use(express.static(path.join('public')))
 
+//need for final build
 const corsOptions = {
     origin: true,
     optionsSuccessStatus: 200
@@ -35,6 +37,7 @@ app.use(cors(corsOptions))
 
 app.use('/api/v1/players', playerRouter)
 
+//need for final build
 app.use((req, res, next) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
 })
@@ -62,6 +65,7 @@ app.use((error, req, res, next) => {
 // app.post('/players', createPlayer)
 // app.get('/players', getPlayers)
 //app.listen(3000)
+//need for final build
 mongoose
 .connect(`${process.env.DATABASE_URL}`)
 .then( async () => {
@@ -70,12 +74,4 @@ mongoose
 })
 .catch(err => {console.log(err)});
 
-
-// mongoose
-// .connect(`mongodb+srv://bbasaldua:Animarum505!@cluster0.qsylk.mongodb.net/PracDB?retryWrites=true&w=majority`)
-// .then( async () => {
-//     console.log('connected app.js...')
-//     app.listen(process.env.PORT || 5000);
-// })
-// .catch(err => {console.log(err)});
 
