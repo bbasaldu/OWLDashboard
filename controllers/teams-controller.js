@@ -14,7 +14,7 @@ export const getTeamColors = async (req, res, next) => {
     try{
       foundTeam = await Team.findOne({team}, 'colors').exec();
       if(foundTeam === null) {
-        const error = HttpError('Could not find team with provided name', 404)
+        const error = new HttpError('Could not find team with provided name', 404)
         return next(error)
       }
     } catch {

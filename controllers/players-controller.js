@@ -31,8 +31,11 @@ export const getPlayerByName = async (req, res, next) => {
     let foundPlayer
     try{
       foundPlayer = await Player.findOne({name}).exec();
+      console.log(foundPlayer)
       if(foundPlayer === null) {
-        const error = HttpError('Could not fine player with provided name', 404)
+        console.log('heere')
+        const error = new HttpError('Could not find player with provided name', 404)
+        
         return next(error)
       }
     } catch {
